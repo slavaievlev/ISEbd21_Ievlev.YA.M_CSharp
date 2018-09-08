@@ -12,7 +12,7 @@ namespace WindowsFormsCars
 {
     public partial class FormCar : Form
     {
-        private SportCar car;
+        private Bus car;
 
         public FormCar()
         {
@@ -36,9 +36,8 @@ namespace WindowsFormsCars
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            car = new SportCar(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.Blue);
+            car = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.Blue);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
-
             Draw();
         }
 
@@ -52,25 +51,25 @@ namespace WindowsFormsCars
             {
                 case "buttonUp":
                     {
-                        car.MoveTransport(SportCar.Direction.Up);
+                        car.MoveTransport(Bus.Direction.Up);
                         break;
                     }
 
                 case "buttonDown":
                     {
-                        car.MoveTransport(SportCar.Direction.Down);
+                        car.MoveTransport(Bus.Direction.Down);
                         break;
                     }
 
                 case "buttonLeft":
                     {
-                        car.MoveTransport(SportCar.Direction.Left);
+                        car.MoveTransport(Bus.Direction.Left);
                         break;
                     }
 
                 case "buttonRight":
                     {
-                        car.MoveTransport(SportCar.Direction.Right);
+                        car.MoveTransport(Bus.Direction.Right);
                         break;
                     }
             }

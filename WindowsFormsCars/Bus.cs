@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsCars
 {
-    class SportCar
+    class Bus
     {
         /// <summary>
         /// Координаты автобуса
@@ -53,17 +53,12 @@ namespace WindowsFormsCars
         /// <param name="weight">Вес автомобиля</param>
         /// <param name="mainColor">Основной цвет</param>
         /// <param name="dopColor">Дополнительный цвет</param>
-        public SportCar(int maxSpeed, float weight, Color mainColor, Color dopColor
-            //, bool frontSpoiler, bool sideSpoiler, bool backSpoiler
-            )
+        public Bus(int maxSpeed, float weight, Color mainColor, Color dopColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
             DopColor = dopColor;
-            //FrontSpoiler = frontSpoiler;
-            //SideSpoiler = sideSpoiler;
-            //BackSpoiler = backSpoiler;
         }
 
         public void SetPosition(int x, int y, int width, int heigth)
