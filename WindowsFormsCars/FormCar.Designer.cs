@@ -44,7 +44,7 @@
             this.buttonCreateCar.Name = "buttonCreateCar";
             this.buttonCreateCar.Size = new System.Drawing.Size(180, 39);
             this.buttonCreateCar.TabIndex = 1;
-            this.buttonCreateCar.Text = "Создать автомобиль";
+            this.buttonCreateCar.Text = "Создать автобус";
             this.buttonCreateCar.UseVisualStyleBackColor = true;
             this.buttonCreateCar.Click += new System.EventHandler(this.buttonCreateCar_Click);
             // 
@@ -109,9 +109,9 @@
             // 
             this.buttonCreateBus.Location = new System.Drawing.Point(229, 13);
             this.buttonCreateBus.Name = "buttonCreateBus";
-            this.buttonCreateBus.Size = new System.Drawing.Size(180, 39);
+            this.buttonCreateBus.Size = new System.Drawing.Size(294, 39);
             this.buttonCreateBus.TabIndex = 6;
-            this.buttonCreateBus.Text = "Создать автобус";
+            this.buttonCreateBus.Text = "Создать двухэтажный автобус";
             this.buttonCreateBus.UseVisualStyleBackColor = true;
             this.buttonCreateBus.Click += new System.EventHandler(this.buttonCreateBus_Click);
             // 

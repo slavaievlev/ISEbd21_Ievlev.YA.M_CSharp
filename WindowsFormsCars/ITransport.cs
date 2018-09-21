@@ -6,7 +6,7 @@ namespace WindowsFormsCars
     interface ITransport
     {
         /// <summary>
-        /// Установка позиции автомобиля
+        /// Установка позиции транспортного средства
         /// </summary>
         /// <param name="x">Координата X</param>
         /// <param name="y">Координата Y</param>
@@ -15,13 +15,13 @@ namespace WindowsFormsCars
         void SetPosition(int x, int y, int width, int height);
 
         /// <summary>
-        /// Изменение направления движения
+        /// Перемещение транспортного средства
         /// </summary>
         /// <param name="direction">Направление</param>
         void MoveTransport(Direction direction);
 
         /// <summary>
-        /// Отрисовка автомобиля
+        /// Отрисовка транспортного средства
         /// </summary>
         void DrawCar(Graphics g);
     }

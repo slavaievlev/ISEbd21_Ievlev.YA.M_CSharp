@@ -67,7 +67,7 @@ namespace WindowsFormsCars
         private void buttonCreateCar_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red);
+            car = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
             Draw();
         }
@@ -78,7 +78,7 @@ namespace WindowsFormsCars
         private void buttonCreateBus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            car = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.SkyBlue);
+            car = new DoubleBus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.SkyBlue);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
             Draw();
         }
