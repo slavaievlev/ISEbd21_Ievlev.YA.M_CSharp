@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using static WindowsFormsCars.DirectionClass;
 
 namespace WindowsFormsCars
 {
@@ -17,12 +18,11 @@ namespace WindowsFormsCars
         /// Изменение направления движения
         /// </summary>
         /// <param name="direction">Направление</param>
-        void MoveTransport(Bus.Direction direction);
+        void MoveTransport(Direction direction);
 
         /// <summary>
         /// Отрисовка автомобиля
         /// </summary>
-        /// <param name="g"></param>
         void DrawCar(Graphics g);
     }
 }

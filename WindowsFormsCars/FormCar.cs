@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static WindowsFormsCars.DirectionClass;
 
 namespace WindowsFormsCars
 {
     public partial class FormCar : Form
     {
-        private Bus car;
+        private ITransport car;
 
         public FormCar()
         {
@@ -31,17 +26,6 @@ namespace WindowsFormsCars
         }
 
         /// <summary>
-        /// Кнопка "создать"
-        /// </summary>
-        private void buttonCreate_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            car = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.Blue);
-            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
-            Draw();
-        }
-
-        /// <summary>
         /// Кнопки управления
         /// </summary>
         private void buttonMove_Click(object sender, EventArgs e)
@@ -51,29 +35,51 @@ namespace WindowsFormsCars
             {
                 case "buttonUp":
                     {
-                        car.MoveTransport(Bus.Direction.Up);
+                        car.MoveTransport(Direction.Up);
                         break;
                     }
 
                 case "buttonDown":
                     {
-                        car.MoveTransport(Bus.Direction.Down);
+                        car.MoveTransport(Direction.Down);
                         break;
                     }
 
                 case "buttonLeft":
                     {
-                        car.MoveTransport(Bus.Direction.Left);
+                        car.MoveTransport(Direction.Left);
                         break;
                     }
 
                 case "buttonRight":
                     {
-                        car.MoveTransport(Bus.Direction.Right);
+                        car.MoveTransport(Direction.Right);
                         break;
                     }
             }
 
+            Draw();
+        }
+
+        /// <summary>
+        /// Кнопка "Создать автомобиль"
+        /// </summary>
+        private void buttonCreateCar_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            car = new Car(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
+            Draw();
+        }
+
+        /// <summary>
+        /// Кнопка "Создать автобус"
+        /// </summary>
+        private void buttonCreateBus_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            car = new Bus(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.SkyBlue);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
             Draw();
         }
     }

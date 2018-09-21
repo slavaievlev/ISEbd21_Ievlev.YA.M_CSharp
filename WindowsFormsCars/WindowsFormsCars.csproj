@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Car.cs" />
+    <Compile Include="DirectionClass.cs" />
     <Compile Include="FormCar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bus.cs" />
+    <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormCar.resx">
       <DependentUpon>FormCar.cs</DependentUpon>
     </EmbeddedResource>
