@@ -84,7 +84,7 @@ namespace WindowsFormsCars
 
             // Корпус автобуса
             Brush brush = new SolidBrush(MainColor);
-            g.FillRectangle(brush, _startPosX, _startPosY, carWidth, carHeight);
+            g.FillRectangle(brush, _startPosX, _startPosY + 30, carWidth, carHeight - 30);
 
             // Колеса
             Brush brushBlack = new SolidBrush(Color.Black);
@@ -99,7 +99,7 @@ namespace WindowsFormsCars
 
             // Лобовое стекло
             Brush brushBlue = new SolidBrush(Color.SkyBlue);
-            g.FillRectangle(brushBlue, _startPosX + carWidth - 25, _startPosY + 18, 26, 50);
+            g.FillRectangle(brushBlue, _startPosX + carWidth - 25, _startPosY + 38, 26, 30);
 
             // Стекла
             g.FillRectangle(brushBlue, _startPosX - 1, _startPosY + 45, 30, 20);

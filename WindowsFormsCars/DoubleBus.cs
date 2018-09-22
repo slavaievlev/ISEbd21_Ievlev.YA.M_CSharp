@@ -26,7 +26,15 @@ namespace WindowsFormsCars
             base.DrawCar(g);
 
             Pen pen = new Pen(Color.Black);
-            
+
+            // Корпус автобуса
+            Brush brush = new SolidBrush(MainColor);
+            g.FillRectangle(brush, _startPosX, _startPosY, carWidth, carHeight - 70);
+
+            // Лобовое стекло
+            Brush brushBlue = new SolidBrush(Color.SkyBlue);
+            g.FillRectangle(brushBlue, _startPosX + carWidth - 25, _startPosY + 15, 26, 23);
+
             // Стекла
             Brush brushDop = new SolidBrush(DopColor);
             g.FillRectangle(brushDop, _startPosX - 1, _startPosY + 18, 30, 20);
