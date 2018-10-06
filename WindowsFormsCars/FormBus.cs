@@ -5,11 +5,11 @@ using static WindowsFormsCars.DirectionClass;
 
 namespace WindowsFormsCars
 {
-    public partial class FormCar : Form
+    public partial class FormBus : Form
     {
         private ITransport car;
 
-        public FormCar()
+        public FormBus()
         {
             InitializeComponent();
         }
