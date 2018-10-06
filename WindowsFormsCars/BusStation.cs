@@ -14,12 +14,12 @@ namespace WindowsFormsCars
         /// <summary>
         /// Размер одного места парковки по ширине.
         /// </summary>
-        private int _placeSizeWidth = 200;
+        private int _placeSizeWidth = 220;
 
         /// <summary>
         /// Размер одного места парковки по высоте.
         /// </summary>
-        private int _placeSizeHeight = 120;
+        private int _placeSizeHeight = 130;
 
         /// <summary>
         /// Размер парковки по ширине.
@@ -62,7 +62,7 @@ namespace WindowsFormsCars
                 {
                     p._places[i] = vehicle;
                     p._places[i].SetPosition(5 + i / 5 * p._placeSizeWidth + 5,
-                        i % 5 * p._placeSizeHeight,
+                        i % 5 * p._placeSizeHeight + 10,
                         p.PictureWidth, p.PictureHeight);
 
                     return i;
@@ -134,7 +134,7 @@ namespace WindowsFormsCars
                 for (int j = 0; j < 4; j++)
                 {
                     g.DrawLine(pen, j * _placeSizeWidth, i * _placeSizeHeight,
-                        j * _placeSizeWidth + _placeSizeWidth / 4 * 3,
+                        j * _placeSizeWidth + _placeSizeWidth / 5 * 3,
                         i * _placeSizeHeight);
 
                     g.DrawLine(pen, j * _placeSizeWidth, i * _placeSizeHeight,
