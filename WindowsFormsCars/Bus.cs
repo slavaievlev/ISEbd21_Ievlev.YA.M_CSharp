@@ -34,18 +34,7 @@ namespace WindowsFormsCars
         public float Weight { private set; get; }
         public Color MainColor { private set; get; }
         public Color DopColor { private set; get; }
-        //public bool FrontSpoiler { private set; get; }
-        //public bool SideSpoiler { private set; get; }
-        //public bool BackSpoiler { private set; get; }
-
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right
-        }
-
+        
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -73,12 +62,12 @@ namespace WindowsFormsCars
         /// Изменение направления перемещения
         /// </summary>
         /// <param name="direction"></param>
-        public void MoveTransport(Direction direction)
+        public void MoveTransport(Directions.direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
             switch (direction)
             {
-                case Direction.Left:
+                case Directions.direction.Left:
                     {
                         if (_startPosX - step > 0)
                         {
@@ -87,7 +76,7 @@ namespace WindowsFormsCars
                         break;
                     }
 
-                case Direction.Right:
+                case Directions.direction.Right:
                     {
                         if (_startPosX + step + carWidth < _pictureWidth)
                         {
@@ -96,7 +85,7 @@ namespace WindowsFormsCars
                         break;
                     }
 
-                case Direction.Up:
+                case Directions.direction.Up:
                     {
                         if (_startPosY - step > 0)
                         {
@@ -105,7 +94,7 @@ namespace WindowsFormsCars
                         break;
                     }
 
-                case Direction.Down:
+                case Directions.direction.Down:
                     {
                         if (_startPosY + step + carHeight < _pictureHeight)
                         {
@@ -116,7 +105,7 @@ namespace WindowsFormsCars
             }
         }
 
-        public void DrawCar(Graphics g)
+        public void DrawBus(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
 

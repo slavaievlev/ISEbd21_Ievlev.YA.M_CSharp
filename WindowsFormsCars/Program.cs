@@ -16,7 +16,7 @@ namespace WindowsFormsCars
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormCar());
+            Application.Run(new FormBus());
         }
     }
 }

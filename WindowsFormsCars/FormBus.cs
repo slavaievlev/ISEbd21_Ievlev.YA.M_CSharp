@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsCars
 {
-    public partial class FormCar : Form
+    public partial class FormBus : Form
     {
         private Bus car;
 
-        public FormCar()
+        public FormBus()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace WindowsFormsCars
         {
             Bitmap bitmap = new Bitmap(pictureBoxCars.Width, pictureBoxCars.Height);
             Graphics gr = Graphics.FromImage(bitmap);
-            car.DrawCar(gr);
+            car.DrawBus(gr);
             pictureBoxCars.Image = bitmap;
         }
 
