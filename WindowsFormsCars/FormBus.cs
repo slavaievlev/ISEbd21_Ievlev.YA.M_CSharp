@@ -51,25 +51,25 @@ namespace WindowsFormsCars
             {
                 case "buttonUp":
                     {
-                        car.MoveTransport(Bus.Direction.Up);
+                        car.MoveTransport(Directions.direction.Up);
                         break;
                     }
 
                 case "buttonDown":
                     {
-                        car.MoveTransport(Bus.Direction.Down);
+                        car.MoveTransport(Directions.direction.Down);
                         break;
                     }
 
                 case "buttonLeft":
                     {
-                        car.MoveTransport(Bus.Direction.Left);
+                        car.MoveTransport(Directions.direction.Left);
                         break;
                     }
 
                 case "buttonRight":
                     {
-                        car.MoveTransport(Bus.Direction.Right);
+                        car.MoveTransport(Directions.direction.Right);
                         break;
                     }
             }
