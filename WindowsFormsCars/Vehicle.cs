@@ -56,6 +56,15 @@ namespace WindowsFormsCars
         }
 
         /// <summary>
+        /// Смена основного цвета автобуса.
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetMainColor(Color color)
+        {
+            MainColor = color;
+        }
+
+        /// <summary>
         /// Метод отрисовки транспортного средства
         /// </summary>
         public abstract void DrawBus(Graphics g);

@@ -62,5 +62,14 @@ namespace WindowsFormsCars
                 g.FillEllipse(brushBlack, _startPosX + 50, _startPosY + carHeight - 15, 30, 30);
             }
         }
+
+        /// <summary>
+        /// Смена дополнительного цвета автобуса.
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
     }
 }
