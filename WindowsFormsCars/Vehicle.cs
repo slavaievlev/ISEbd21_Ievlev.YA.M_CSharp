@@ -58,7 +58,7 @@ namespace WindowsFormsCars
         /// <summary>
         /// Метод отрисовки транспортного средства
         /// </summary>
-        public abstract void DrawCar(Graphics g);
+        public abstract void DrawBus(Graphics g);
 
         /// <summary>
         /// Метод перемещения транспортного средства

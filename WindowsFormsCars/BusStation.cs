@@ -118,7 +118,7 @@ namespace WindowsFormsCars
             var keys = _places.Keys.ToList();
             for (int i = 0; i < keys.Count; i++)
             {
-                _places[keys[i]].DrawCar(g);
+                _places[keys[i]].DrawBus(g);
             }
         }
 
