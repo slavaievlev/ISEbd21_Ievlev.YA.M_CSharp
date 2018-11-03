@@ -13,19 +13,30 @@ namespace WindowsFormsCars
     public partial class FormParking : Form
     {
         /// <summary>
-        /// Объект автовокзала.
+        /// Объект от класса многоуровневой стоянки автобусов.
         /// </summary>
-        BusStation<ITransport> busStation;
+        MultiBusStation busStation;
         
+        /// <summary>
+        /// Количество уровней стоянки автобусов.
+        /// </summary>
+        private const int countLevel = 5;
+
         /// <summary>
         /// Конструктор.
         /// </summary>
         public FormParking()
         {
             InitializeComponent();
-            busStation = new BusStation<ITransport>(20, 
+            busStation = new MultiBusStation(countLevel, 
                 pictureBoxParking.Width, pictureBoxParking.Height);
-            Draw();
+            // Заполнение listBox.
+            for (int i = 0; i < countLevel; i++)
+            {
+                listBoxLevels.Items.Add("Уровень: " + (i + 1));
+            }
+            listBoxLevels.SelectedIndex = 0;
+            //Draw();
         }
 
         /// <summary>
@@ -33,10 +44,13 @@ namespace WindowsFormsCars
         /// </summary>
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            busStation.Draw(gr);
-            pictureBoxParking.Image = bmp;
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                busStation[listBoxLevels.SelectedIndex].Draw(gr);
+                pictureBoxParking.Image = bmp;
+            }
         }
 
         /// <summary>
@@ -50,7 +64,11 @@ namespace WindowsFormsCars
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 var bus = new Bus(0, 0, dialog.Color);
-                int place = busStation + bus;
+                int place = busStation[listBoxLevels.SelectedIndex] + bus;
+                if (place == -1)
+                {
+                    MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 Draw();
             }
         }
@@ -69,7 +87,11 @@ namespace WindowsFormsCars
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
                     var bus = new DoubleBus(0, 0, dialog.Color, dialogDop.Color, Color.Violet, false);
-                    int place = busStation + bus;
+                    int place = busStation[listBoxLevels.SelectedIndex] + bus;
+                    if (place == -1)
+                    {
+                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     Draw();
                 }
             }
@@ -84,7 +106,7 @@ namespace WindowsFormsCars
         {
             if (maskedTextBoxPlaceNumber.Text != "")
             {
-                var bus = busStation - Convert.ToInt32(maskedTextBoxPlaceNumber.Text);
+                var bus = busStation[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxPlaceNumber.Text);
                 if (bus != null)
                 {
                     Bitmap bmp = new Bitmap(pictureBoxForBusDraw.Width, pictureBoxForBusDraw.Height);
@@ -99,6 +121,16 @@ namespace WindowsFormsCars
                 }
                 Draw();
             }
+        }
+
+        /// <summary>
+        /// Метод обработки выбора элемента в listBoxLevels.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }

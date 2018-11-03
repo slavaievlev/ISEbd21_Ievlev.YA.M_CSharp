@@ -37,6 +37,7 @@
             this.textBoxPlaceNumber = new System.Windows.Forms.TextBox();
             this.textBoxGetBus = new System.Windows.Forms.TextBox();
             this.maskedTextBoxPlaceNumber = new System.Windows.Forms.MaskedTextBox();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxForBusDraw)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             // buttonSetBus
             // 
-            this.buttonSetBus.Location = new System.Drawing.Point(1248, 12);
+            this.buttonSetBus.Location = new System.Drawing.Point(1248, 208);
             this.buttonSetBus.Name = "buttonSetBus";
             this.buttonSetBus.Size = new System.Drawing.Size(222, 81);
             this.buttonSetBus.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // buttonSetDoubleBus
             // 
-            this.buttonSetDoubleBus.Location = new System.Drawing.Point(1248, 99);
+            this.buttonSetDoubleBus.Location = new System.Drawing.Point(1248, 295);
             this.buttonSetDoubleBus.Name = "buttonSetDoubleBus";
             this.buttonSetDoubleBus.Size = new System.Drawing.Size(222, 81);
             this.buttonSetDoubleBus.TabIndex = 2;
@@ -131,11 +132,22 @@
             this.maskedTextBoxPlaceNumber.Size = new System.Drawing.Size(23, 22);
             this.maskedTextBoxPlaceNumber.TabIndex = 0;
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.ItemHeight = 16;
+            this.listBoxLevels.Location = new System.Drawing.Point(1248, 12);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(222, 180);
+            this.listBoxLevels.TabIndex = 4;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 853);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSetDoubleBus);
             this.Controls.Add(this.buttonSetBus);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.TextBox textBoxGetBus;
         private System.Windows.Forms.PictureBox pictureBoxForBusDraw;
         private System.Windows.Forms.Button buttonGetBus;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }

@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="ITransport.cs" />
     <Compile Include="BusStation.cs" />
+    <Compile Include="MultiBusStation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DoubleBus.cs" />
