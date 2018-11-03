@@ -46,7 +46,7 @@
             this.buttonCreateCar.TabIndex = 1;
             this.buttonCreateCar.Text = "Создать автобус";
             this.buttonCreateCar.UseVisualStyleBackColor = true;
-            this.buttonCreateCar.Click += new System.EventHandler(this.buttonCreateCar_Click);
+            this.buttonCreateCar.Click += new System.EventHandler(this.buttonCreateBus_Click);
             // 
             // buttonRight
             // 
@@ -113,7 +113,7 @@
             this.buttonCreateBus.TabIndex = 6;
             this.buttonCreateBus.Text = "Создать двухэтажный автобус";
             this.buttonCreateBus.UseVisualStyleBackColor = true;
-            this.buttonCreateBus.Click += new System.EventHandler(this.buttonCreateBus_Click);
+            this.buttonCreateBus.Click += new System.EventHandler(this.buttonCreateDoubleBus_Click);
             // 
             // FormCar
             // 
