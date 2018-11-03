@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.buttonCreateCar = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.pictureBoxCars = new System.Windows.Forms.PictureBox();
+            this.buttonCreateBus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCars)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCreate
+            // buttonCreateCar
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(13, 13);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(131, 39);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Создать";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreateCar.Location = new System.Drawing.Point(13, 13);
+            this.buttonCreateCar.Name = "buttonCreateCar";
+            this.buttonCreateCar.Size = new System.Drawing.Size(180, 39);
+            this.buttonCreateCar.TabIndex = 1;
+            this.buttonCreateCar.Text = "Создать автобус";
+            this.buttonCreateCar.UseVisualStyleBackColor = true;
+            this.buttonCreateCar.Click += new System.EventHandler(this.buttonCreateCar_Click);
             // 
             // buttonRight
             // 
@@ -104,16 +105,27 @@
             this.pictureBoxCars.TabIndex = 0;
             this.pictureBoxCars.TabStop = false;
             // 
+            // buttonCreateBus
+            // 
+            this.buttonCreateBus.Location = new System.Drawing.Point(229, 13);
+            this.buttonCreateBus.Name = "buttonCreateBus";
+            this.buttonCreateBus.Size = new System.Drawing.Size(294, 39);
+            this.buttonCreateBus.TabIndex = 6;
+            this.buttonCreateBus.Text = "Создать двухэтажный автобус";
+            this.buttonCreateBus.UseVisualStyleBackColor = true;
+            this.buttonCreateBus.Click += new System.EventHandler(this.buttonCreateBus_Click);
+            // 
             // FormCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
+            this.Controls.Add(this.buttonCreateBus);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.buttonCreateCar);
             this.Controls.Add(this.pictureBoxCars);
             this.Name = "FormCar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -126,11 +138,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxCars;
-        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.Button buttonCreateCar;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.Button buttonCreateBus;
     }
 }
 
