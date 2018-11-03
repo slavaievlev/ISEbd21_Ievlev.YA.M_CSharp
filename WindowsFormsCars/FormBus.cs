@@ -21,7 +21,7 @@ namespace WindowsFormsCars
         {
             Bitmap bitmap = new Bitmap(pictureBoxCars.Width, pictureBoxCars.Height);
             Graphics gr = Graphics.FromImage(bitmap);
-            car.DrawCar(gr);
+            car.DrawBus(gr);
             pictureBoxCars.Image = bitmap;
         }
 
