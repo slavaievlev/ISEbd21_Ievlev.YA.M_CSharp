@@ -37,7 +37,7 @@ namespace WindowsFormsCars
             float step = MaxSpeed * 100 / Weight;
             switch (direction)
             {
-                case Direction.Left:
+                case Directions.direction.Left:
                     {
                         if (_startPosX - step > 0)
                         {
@@ -46,7 +46,7 @@ namespace WindowsFormsCars
                         break;
                     }
 
-                case Direction.Right:
+                case Directions.direction.Right:
                     {
                         if (_startPosX + step + carWidth < _pictureWidth)
                         {
@@ -55,7 +55,7 @@ namespace WindowsFormsCars
                         break;
                     }
 
-                case Direction.Up:
+                case Directions.direction.Up:
                     {
                         if (_startPosY - step > 0)
                         {
@@ -64,7 +64,7 @@ namespace WindowsFormsCars
                         break;
                     }
 
-                case Direction.Down:
+                case Directions.direction.Down:
                     {
                         if (_startPosY + step + carHeight < _pictureHeight)
                         {
