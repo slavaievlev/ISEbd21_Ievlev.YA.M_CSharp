@@ -116,7 +116,7 @@ namespace WindowsFormsCars
             {
                 if (!CheckFreePlace(i))
                 {
-                    _places[i].DrawCar(g);
+                    _places[i].DrawBus(g);
                 }
             }
         }

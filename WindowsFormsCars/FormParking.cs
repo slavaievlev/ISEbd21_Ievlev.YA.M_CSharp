@@ -90,7 +90,7 @@ namespace WindowsFormsCars
                     Bitmap bmp = new Bitmap(pictureBoxForBusDraw.Width, pictureBoxForBusDraw.Height);
                     Graphics gr = Graphics.FromImage(bmp);
                     bus.SetPosition(5, 5, pictureBoxForBusDraw.Width, pictureBoxForBusDraw.Height);
-                    bus.DrawCar(gr);
+                    bus.DrawBus(gr);
                     pictureBoxForBusDraw.Image = bmp;
                 } else
                 {

@@ -78,7 +78,7 @@ namespace WindowsFormsCars
         /// <summary>
         /// Метод отрисовки автомобиля
         /// </summary>
-        public override void DrawCar(Graphics g)
+        public override void DrawBus(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
 
