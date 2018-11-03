@@ -33,6 +33,8 @@
             this.busLabel = new System.Windows.Forms.Label();
             this.drawBusPictureBox = new System.Windows.Forms.PictureBox();
             this.panelForDrawBusPictureBox = new System.Windows.Forms.Panel();
+            this.colorLabel = new System.Windows.Forms.Label();
+            this.dopColorLabel = new System.Windows.Forms.Label();
             this.blackColorPanel = new System.Windows.Forms.Panel();
             this.whiteColorPanel = new System.Windows.Forms.Panel();
             this.greenColorPanel = new System.Windows.Forms.Panel();
@@ -41,8 +43,6 @@
             this.redColorPanel = new System.Windows.Forms.Panel();
             this.grayColorPanel = new System.Windows.Forms.Panel();
             this.orangeColorPanel = new System.Windows.Forms.Panel();
-            this.dopColorLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxForDrawBus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drawBusPictureBox)).BeginInit();
             this.panelForDrawBusPictureBox.SuspendLayout();
@@ -92,7 +92,7 @@
             // panelForDrawBusPictureBox
             // 
             this.panelForDrawBusPictureBox.AllowDrop = true;
-            this.panelForDrawBusPictureBox.Controls.Add(this.label1);
+            this.panelForDrawBusPictureBox.Controls.Add(this.colorLabel);
             this.panelForDrawBusPictureBox.Controls.Add(this.dopColorLabel);
             this.panelForDrawBusPictureBox.Controls.Add(this.drawBusPictureBox);
             this.panelForDrawBusPictureBox.Location = new System.Drawing.Point(278, 47);
@@ -101,6 +101,28 @@
             this.panelForDrawBusPictureBox.TabIndex = 3;
             this.panelForDrawBusPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelForDrawBusPictureBox_DragDrop);
             this.panelForDrawBusPictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelForDrawBusPictureBox_DragEnter);
+            // 
+            // colorLabel
+            // 
+            this.colorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.colorLabel.Location = new System.Drawing.Point(57, 194);
+            this.colorLabel.Name = "colorLabel";
+            this.colorLabel.Size = new System.Drawing.Size(199, 41);
+            this.colorLabel.TabIndex = 3;
+            this.colorLabel.Text = "Основной цвет";
+            this.colorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.colorLabel.DragDrop += new System.Windows.Forms.DragEventHandler(this.colorLabel_DragDrop);
+            this.colorLabel.DragEnter += new System.Windows.Forms.DragEventHandler(this.colorLabel_DragEnter);
+            // 
+            // dopColorLabel
+            // 
+            this.dopColorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dopColorLabel.Location = new System.Drawing.Point(57, 235);
+            this.dopColorLabel.Name = "dopColorLabel";
+            this.dopColorLabel.Size = new System.Drawing.Size(199, 41);
+            this.dopColorLabel.TabIndex = 2;
+            this.dopColorLabel.Text = "Дополнительный цвет";
+            this.dopColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // blackColorPanel
             // 
@@ -174,26 +196,6 @@
             this.orangeColorPanel.Size = new System.Drawing.Size(46, 46);
             this.orangeColorPanel.TabIndex = 5;
             // 
-            // dopColorLabel
-            // 
-            this.dopColorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dopColorLabel.Location = new System.Drawing.Point(57, 235);
-            this.dopColorLabel.Name = "dopColorLabel";
-            this.dopColorLabel.Size = new System.Drawing.Size(199, 41);
-            this.dopColorLabel.TabIndex = 2;
-            this.dopColorLabel.Text = "Дополнительный цвет";
-            this.dopColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(57, 194);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 41);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Основной цвет";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormBusConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,7 +226,7 @@
         private System.Windows.Forms.Label busLabel;
         private System.Windows.Forms.PictureBox drawBusPictureBox;
         private System.Windows.Forms.Panel panelForDrawBusPictureBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label colorLabel;
         private System.Windows.Forms.Label dopColorLabel;
         private System.Windows.Forms.Panel blackColorPanel;
         private System.Windows.Forms.Panel whiteColorPanel;

@@ -56,7 +56,17 @@ namespace WindowsFormsCars
         {
             doublebusLabel.DoDragDrop(doublebusLabel.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
-        
+
+        /// <summary>
+        /// Передаем информацию при нажатии панели с цветом.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void colorPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
         /// <summary>
         /// Проверка получаемой информации (ее типа на соответствие требуемому).
         /// </summary>
@@ -94,6 +104,16 @@ namespace WindowsFormsCars
                     }
             }
             DrawBus();
+        }
+
+        private void colorLabel_DragEnter(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void colorLabel_DragDrop(object sender, DragEventArgs e)
+        {
+
         }
     }
 }
