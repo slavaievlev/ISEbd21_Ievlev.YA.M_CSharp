@@ -23,6 +23,6 @@ namespace WindowsFormsCars
         /// <summary>
         /// Отрисовка транспортного средства
         /// </summary>
-        void DrawCar(Graphics g);
+        void DrawBus(Graphics g);
     }
 }
