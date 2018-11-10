@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            this.buttonSetBus = new System.Windows.Forms.Button();
-            this.buttonSetDoubleBus = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxForBusDraw = new System.Windows.Forms.PictureBox();
             this.buttonGetBus = new System.Windows.Forms.Button();
@@ -38,6 +36,7 @@
             this.textBoxGetBus = new System.Windows.Forms.TextBox();
             this.maskedTextBoxPlaceNumber = new System.Windows.Forms.MaskedTextBox();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonAddBus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxForBusDraw)).BeginInit();
@@ -50,26 +49,6 @@
             this.pictureBoxParking.Size = new System.Drawing.Size(1230, 829);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
-            // 
-            // buttonSetBus
-            // 
-            this.buttonSetBus.Location = new System.Drawing.Point(1248, 208);
-            this.buttonSetBus.Name = "buttonSetBus";
-            this.buttonSetBus.Size = new System.Drawing.Size(222, 81);
-            this.buttonSetBus.TabIndex = 1;
-            this.buttonSetBus.Text = "Поставить автобус";
-            this.buttonSetBus.UseVisualStyleBackColor = true;
-            this.buttonSetBus.Click += new System.EventHandler(this.buttonSetBus_Click);
-            // 
-            // buttonSetDoubleBus
-            // 
-            this.buttonSetDoubleBus.Location = new System.Drawing.Point(1248, 295);
-            this.buttonSetDoubleBus.Name = "buttonSetDoubleBus";
-            this.buttonSetDoubleBus.Size = new System.Drawing.Size(222, 81);
-            this.buttonSetDoubleBus.TabIndex = 2;
-            this.buttonSetDoubleBus.Text = "Поставить двуярусный автобус";
-            this.buttonSetDoubleBus.UseVisualStyleBackColor = true;
-            this.buttonSetDoubleBus.Click += new System.EventHandler(this.buttonSetDoubleBus_Click);
             // 
             // groupBox1
             // 
@@ -142,15 +121,24 @@
             this.listBoxLevels.TabIndex = 4;
             this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
+            // buttonAddBus
+            // 
+            this.buttonAddBus.Location = new System.Drawing.Point(1278, 279);
+            this.buttonAddBus.Name = "buttonAddBus";
+            this.buttonAddBus.Size = new System.Drawing.Size(171, 50);
+            this.buttonAddBus.TabIndex = 5;
+            this.buttonAddBus.Text = "Заказать автобус";
+            this.buttonAddBus.UseVisualStyleBackColor = true;
+            this.buttonAddBus.Click += new System.EventHandler(this.buttonAddBus_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 853);
+            this.Controls.Add(this.buttonAddBus);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonSetDoubleBus);
-            this.Controls.Add(this.buttonSetBus);
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormParking";
             this.Text = "Автовокзал";
@@ -165,8 +153,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxParking;
-        private System.Windows.Forms.Button buttonSetBus;
-        private System.Windows.Forms.Button buttonSetDoubleBus;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlaceNumber;
         private System.Windows.Forms.TextBox textBoxPlaceNumber;
@@ -174,5 +160,6 @@
         private System.Windows.Forms.PictureBox pictureBoxForBusDraw;
         private System.Windows.Forms.Button buttonGetBus;
         private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Button buttonAddBus;
     }
 }

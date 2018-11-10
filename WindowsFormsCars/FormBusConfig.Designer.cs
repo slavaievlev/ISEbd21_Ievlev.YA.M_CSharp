@@ -43,6 +43,8 @@
             this.redColorPanel = new System.Windows.Forms.Panel();
             this.grayColorPanel = new System.Windows.Forms.Panel();
             this.orangeColorPanel = new System.Windows.Forms.Panel();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.groupBoxForDrawBus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drawBusPictureBox)).BeginInit();
             this.panelForDrawBusPictureBox.SuspendLayout();
@@ -97,15 +99,16 @@
             this.panelForDrawBusPictureBox.Controls.Add(this.drawBusPictureBox);
             this.panelForDrawBusPictureBox.Location = new System.Drawing.Point(278, 47);
             this.panelForDrawBusPictureBox.Name = "panelForDrawBusPictureBox";
-            this.panelForDrawBusPictureBox.Size = new System.Drawing.Size(312, 286);
+            this.panelForDrawBusPictureBox.Size = new System.Drawing.Size(312, 290);
             this.panelForDrawBusPictureBox.TabIndex = 3;
             this.panelForDrawBusPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelForDrawBusPictureBox_DragDrop);
             this.panelForDrawBusPictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelForDrawBusPictureBox_DragEnter);
             // 
             // colorLabel
             // 
+            this.colorLabel.AllowDrop = true;
             this.colorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.colorLabel.Location = new System.Drawing.Point(57, 194);
+            this.colorLabel.Location = new System.Drawing.Point(57, 193);
             this.colorLabel.Name = "colorLabel";
             this.colorLabel.Size = new System.Drawing.Size(199, 41);
             this.colorLabel.TabIndex = 3;
@@ -116,6 +119,7 @@
             // 
             // dopColorLabel
             // 
+            this.dopColorLabel.AllowDrop = true;
             this.dopColorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dopColorLabel.Location = new System.Drawing.Point(57, 235);
             this.dopColorLabel.Name = "dopColorLabel";
@@ -123,6 +127,8 @@
             this.dopColorLabel.TabIndex = 2;
             this.dopColorLabel.Text = "Дополнительный цвет";
             this.dopColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dopColorLabel.DragDrop += new System.Windows.Forms.DragEventHandler(this.dopColorLabel_DragDrop);
+            this.dopColorLabel.DragEnter += new System.Windows.Forms.DragEventHandler(this.colorLabel_DragEnter);
             // 
             // blackColorPanel
             // 
@@ -196,11 +202,32 @@
             this.orangeColorPanel.Size = new System.Drawing.Size(46, 46);
             this.orangeColorPanel.TabIndex = 5;
             // 
+            // buttonClose
+            // 
+            this.buttonClose.Location = new System.Drawing.Point(90, 255);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(91, 26);
+            this.buttonClose.TabIndex = 6;
+            this.buttonClose.Text = "Отмена";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(90, 223);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(91, 26);
+            this.buttonAdd.TabIndex = 7;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // FormBusConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.orangeColorPanel);
             this.Controls.Add(this.grayColorPanel);
             this.Controls.Add(this.redColorPanel);
@@ -236,5 +263,7 @@
         private System.Windows.Forms.Panel redColorPanel;
         private System.Windows.Forms.Panel grayColorPanel;
         private System.Windows.Forms.Panel orangeColorPanel;
+        private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

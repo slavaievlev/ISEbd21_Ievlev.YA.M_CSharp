@@ -16,7 +16,12 @@ namespace WindowsFormsCars
         /// Объект от класса многоуровневой стоянки автобусов.
         /// </summary>
         MultiBusStation busStation;
-        
+
+        /// <summary>
+        /// Форма для добавления.
+        /// </summary>
+        FormBusConfig formBusConfig;
+
         /// <summary>
         /// Количество уровней стоянки автобусов.
         /// </summary>
@@ -52,51 +57,7 @@ namespace WindowsFormsCars
                 pictureBoxParking.Image = bmp;
             }
         }
-
-        /// <summary>
-        /// Кнопка "Поставить автобус".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSetBus_Click(object sender, EventArgs e)
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                var bus = new Bus(0, 0, dialog.Color);
-                int place = busStation[listBoxLevels.SelectedIndex] + bus;
-                if (place == -1)
-                {
-                    MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                Draw();
-            }
-        }
-
-        /// <summary>
-        /// Кнопка "Поставить двуярусный автобус".
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSetDoubleBus_Click(object sender, EventArgs e)
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
-                {
-                    var bus = new DoubleBus(0, 0, dialog.Color, dialogDop.Color, Color.Violet, false);
-                    int place = busStation[listBoxLevels.SelectedIndex] + bus;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
-        }
-
+        
         /// <summary>
         /// Кнопка "Забрать автобус".
         /// </summary>
@@ -131,6 +92,37 @@ namespace WindowsFormsCars
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+        
+        /// <summary>
+        /// Обработка нажатия кнопки "Добавить автомобиль".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAddBus_Click(object sender, EventArgs e)
+        {
+            formBusConfig = new FormBusConfig();
+            formBusConfig.AddEvent(AddBus);
+            formBusConfig.Show();
+        }
+
+        /// <summary>
+        /// Метод добавления машины.
+        /// </summary>
+        /// <param name="bus"></param>
+        private void AddBus(ITransport bus)
+        {
+            if (bus != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = busStation[listBoxLevels.SelectedIndex] + bus;
+                if (place > -1)
+                {
+                    Draw();
+                } else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
         }
     }
 }

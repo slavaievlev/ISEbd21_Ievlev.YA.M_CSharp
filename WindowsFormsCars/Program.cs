@@ -6,6 +6,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsCars
 {
+    public delegate void busDelegate(ITransport bus);
+
     static class Program
     {
         /// <summary>
