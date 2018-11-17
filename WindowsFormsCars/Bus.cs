@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using static WindowsFormsCars.DirectionClass;
 
 namespace WindowsFormsCars
@@ -26,6 +27,17 @@ namespace WindowsFormsCars
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
+        }
+
+        public Bus(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
         }
 
         /// <summary>
@@ -114,6 +126,11 @@ namespace WindowsFormsCars
             // Фары
             Brush brushWhite = new SolidBrush(Color.White);
             g.FillRectangle(brushWhite, _startPosX + carWidth - 7, _startPosY + 75, 8, 10);
+        }
+
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }
