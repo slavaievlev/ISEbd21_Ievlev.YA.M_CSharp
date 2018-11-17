@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsCars
 {
@@ -26,6 +27,20 @@ namespace WindowsFormsCars
             DopColor = dopColor;
             HeadlampsColor = headlampsColor;
             IsExtraWheel = isExtraWheel;
+        }
+
+        public DoubleBus(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 6)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                HeadlampsColor = Color.FromName(strs[4]);
+                IsExtraWheel = Convert.ToBoolean(strs[5]);
+            }
         }
 
         /// <summary>
@@ -70,6 +85,11 @@ namespace WindowsFormsCars
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + HeadlampsColor.Name + ";" + IsExtraWheel;
         }
     }
 }
