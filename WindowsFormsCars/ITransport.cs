@@ -3,7 +3,7 @@ using static WindowsFormsCars.DirectionClass;
 
 namespace WindowsFormsCars
 {
-    interface ITransport
+    public interface ITransport
     {
         /// <summary>
         /// Установка позиции транспортного средства
@@ -24,5 +24,11 @@ namespace WindowsFormsCars
         /// Отрисовка транспортного средства
         /// </summary>
         void DrawBus(Graphics g);
+
+        /// <summary>
+        /// Смена основного цвета автобуса.
+        /// </summary>
+        /// <param name="color"></param>
+        void SetMainColor(Color color);
     }
 }
