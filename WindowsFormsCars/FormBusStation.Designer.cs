@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsCars
 {
-    partial class FormParking
+    partial class FormBusStation
     {
         /// <summary>
         /// Required designer variable.
