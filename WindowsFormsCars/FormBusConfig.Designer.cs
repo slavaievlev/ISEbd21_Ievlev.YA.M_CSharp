@@ -132,7 +132,7 @@
             // 
             // blackColorPanel
             // 
-            this.blackColorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.blackColorPanel.BackColor = System.Drawing.Color.Black;
             this.blackColorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.blackColorPanel.Location = new System.Drawing.Point(630, 58);
             this.blackColorPanel.Name = "blackColorPanel";

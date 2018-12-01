@@ -65,7 +65,7 @@ namespace WindowsFormsCars
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -83,26 +83,29 @@ namespace WindowsFormsCars
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            var bus = level[i];
-                            if (bus != null)
+                            try
                             {
-                                // Если место не пустое, то записываем тип машины.
-                                if (bus.GetType().Name == "Bus")
+                                var bus = level[i];
+                                if (bus != null)
                                 {
-                                    WriteToFile(i + ":Bus:", fs);
+                                    // Если место не пустое, то записываем тип машины.
+                                    if (bus.GetType().Name == "Bus")
+                                    {
+                                        WriteToFile(i + ":Bus:", fs);
+                                    }
+                                    if (bus.GetType().Name == "DoubleBus")
+                                    {
+                                        WriteToFile(i + ":DoubleBus:", fs);
+                                    }
+                                    // Записываемые параметры.
+                                    WriteToFile(bus + Environment.NewLine, fs);
                                 }
-                                if (bus.GetType().Name == "DoubleBus")
-                                {
-                                    WriteToFile(i + ":DoubleBus:", fs);
-                                }
-                                // Записываемые параметры.
-                                WriteToFile(bus + Environment.NewLine, fs);
                             }
+                            catch { }
                         }
                     }
                 }
             }
-            return true;
         }
 
         /// <summary>
@@ -121,11 +124,11 @@ namespace WindowsFormsCars
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             string bufferTextFromFile = "";
             using (FileStream fs = new FileStream(filename, FileMode.Open))
@@ -155,7 +158,7 @@ namespace WindowsFormsCars
             } else
             {
                 // Если такой записи нет, то это не те данные.
-                return false;
+                throw new Exception("Неверный формат файла");
             }
 
             int counter = -1;
@@ -186,7 +189,6 @@ namespace WindowsFormsCars
 
                 busStationsStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = bus;
             }
-            return true;
         }
     }
 }

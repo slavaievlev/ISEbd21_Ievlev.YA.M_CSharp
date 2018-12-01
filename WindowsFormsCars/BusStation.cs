@@ -12,7 +12,7 @@ namespace WindowsFormsCars
         /// <summary>
         /// Словарь объектов-автобусов.
         /// </summary>
-        private Dictionary<int, T> _places;
+        Dictionary<int, T> _places;
 
         /// <summary>
         /// Максимальное количество мест на парковке.
@@ -63,7 +63,7 @@ namespace WindowsFormsCars
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new BusStationOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -95,7 +95,7 @@ namespace WindowsFormsCars
                 p._places.Remove(index);
                 return vahicle;
             }
-            return null;
+            throw new BusStationNotFoundException(index);
         }
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace WindowsFormsCars
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new BusStationNotFoundException(ind);
             }
 
             set
@@ -164,6 +164,9 @@ namespace WindowsFormsCars
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5,
                         ind % 5 * _placeSizeHeight + 10,
                         PictureWidth, PictureHeight);
+                } else
+                {
+                    throw new BusStationOccupiedPlaceException(ind);
                 }
             }
         }
