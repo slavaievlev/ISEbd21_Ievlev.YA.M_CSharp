@@ -4,7 +4,7 @@ using static WindowsFormsCars.DirectionClass;
 
 namespace WindowsFormsCars
 {
-    class Bus : Vehicle
+    class Bus : Vehicle, IComparable<Bus>, IEquatable<Bus>
     {
         /// <summary>
         /// Ширина автомобиля
@@ -131,6 +131,80 @@ namespace WindowsFormsCars
         public override string ToString()
         {
             return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
+        }
+
+        public int CompareTo(Bus other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return MaxSpeed.CompareTo(other.MaxSpeed);
+            }
+            if (Weight != other.Weight)
+            {
+                return Weight.CompareTo(other.Weight);
+            }
+            if (MainColor != other.MainColor)
+            {
+                return MainColor.Name.CompareTo(other.MainColor.Name);
+            }
+            return 0;
+        }
+
+        public bool Equals(Bus other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+
+            object a = new object();
+            a.
+
+            return true;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            Bus busObj = obj as Bus;
+            if (busObj == null)
+            {
+                return false;
+            } else
+            {
+                if (busObj.GetType().Name == "Bus")
+                {
+                    return Equals(busObj);
+                } else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
