@@ -84,20 +84,6 @@ namespace WindowsFormsCars
 
                     return i;
                 }
-                //else if (vehicle.GetType() == p._places[i].GetType())
-                //{
-                //    if (vehicle is DoubleBus)
-                //    {
-                //        if ((vehicle as DoubleBus).Equals(p._places[i]))
-                //        {
-                //            throw new BusStationAlreadyHaveException();
-                //        }
-                //    }
-                //    else if ((vehicle as Bus).Equals(p._places[i]))
-                //    {
-                //        throw new BusStationAlreadyHaveException();
-                //    }
-                //}
             }
 
             return -1;

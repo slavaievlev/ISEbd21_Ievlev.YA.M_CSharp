@@ -94,7 +94,6 @@ namespace WindowsFormsCars
 
         public int CompareTo(DoubleBus other)
         {
-            //var res = (this is Bus).CompareTo(other is Bus);
             var res = (this as Bus).CompareTo(other as Bus);
             if (res != 0)
             {
