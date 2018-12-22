@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsCars
 {
-    class BusStation <T> where T : class, ITransport
+    class BusStation <T> : IEnumerator<T>, IEnumerable<T>, IComparable<BusStation<T>> where T : class, ITransport
     {
         /// <summary>
         /// Словарь объектов-автобусов.
@@ -39,6 +40,8 @@ namespace WindowsFormsCars
         /// </summary>
         private int PictureHeight { set; get; }
 
+        private int _currentIndex;
+
         /// <summary>
         /// Конструктор парковки.
         /// </summary>
@@ -49,6 +52,7 @@ namespace WindowsFormsCars
         {
             _maxCount = sizes;
             _places = new Dictionary<int, T>();
+            _currentIndex = -1;
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
         }
@@ -64,6 +68,10 @@ namespace WindowsFormsCars
             if (p._places.Count == p._maxCount)
             {
                 throw new BusStationOverflowException();
+            }
+            if (p._places.ContainsValue(vehicle))
+            {
+                throw new BusStationAlreadyHaveException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -169,6 +177,93 @@ namespace WindowsFormsCars
                     throw new BusStationOccupiedPlaceException(ind);
                 }
             }
+        }
+
+        public T Current
+        {
+            get
+            {
+                return _places[_places.Keys.ToList()[_currentIndex]];
+            }
+        }
+
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
+        
+        public void Dispose()
+        {
+            _places.Clear();
+        }
+
+        public bool MoveNext()
+        {
+            if (_currentIndex + 1 >= _places.Count)
+            {
+                Reset();
+                return false;
+            }
+            _currentIndex++;
+            return true;
+        }
+
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public int CompareTo(BusStation<T> other)
+        {
+            if (_places.Count > other._places.Count)
+            {
+                return -1;
+            }
+            else if (_places.Count < other._places.Count)
+            {
+                return 1;
+            }
+            else if (_places.Count > 0)
+            {
+                var thisKeys = _places.Keys.ToList();
+                var otherKeys = other._places.Keys.ToList();
+                for (int i = 0; i < _places.Count; i++)
+                {
+                    if (_places[thisKeys[i]] is Bus && other._places[thisKeys[i]] is DoubleBus)
+                    {
+                        return 1;
+                    }
+
+                    if (_places[thisKeys[i]] is DoubleBus && other._places[thisKeys[i]] is Bus)
+                    {
+                        return -1;
+                    }
+
+                    if (_places[thisKeys[i]] is Bus && other._places[thisKeys[i]] is Bus)
+                    {
+                        return (_places[thisKeys[i]] is Bus).CompareTo(other._places[thisKeys[i]] is Bus); ;
+                    }
+
+                    if (_places[thisKeys[i]] is DoubleBus && other._places[thisKeys[i]] is DoubleBus)
+                    {
+                        return (_places[thisKeys[i]] is DoubleBus).CompareTo(other._places[thisKeys[i]] is DoubleBus); ;
+                    }
+                }
+            }
+            return 0;
         }
     }
 }

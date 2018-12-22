@@ -79,6 +79,7 @@
     <Compile Include="BusStationNotFoundException.cs" />
     <Compile Include="BusStationOccupiedPlaceException.cs" />
     <Compile Include="BusStationOverflowException.cs" />
+    <Compile Include="ParkingAlreadyHaveException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DoubleBus.cs" />

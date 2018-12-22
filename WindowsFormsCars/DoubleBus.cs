@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace WindowsFormsCars
 {
-    class DoubleBus : Bus
+    class DoubleBus : Bus, IComparable<DoubleBus>, IEquatable<DoubleBus>
     {
         // Дополнительный цвет
         public Color DopColor { private set; get; }
@@ -90,6 +90,74 @@ namespace WindowsFormsCars
         public override string ToString()
         {
             return base.ToString() + ";" + DopColor.Name + ";" + HeadlampsColor.Name + ";" + IsExtraWheel;
+        }
+
+        public int CompareTo(DoubleBus other)
+        {
+            var res = (this as Bus).CompareTo(other as Bus);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (HeadlampsColor != other.HeadlampsColor)
+            {
+                return HeadlampsColor.Name.CompareTo(other.HeadlampsColor.Name);
+            }
+            if (IsExtraWheel != other.IsExtraWheel)
+            {
+                return IsExtraWheel.CompareTo(other.IsExtraWheel);
+            }
+            
+            return 0;
+        }
+
+        public bool Equals(DoubleBus other)
+        {
+            var res = (this as Bus).Equals(other as Bus);
+            if (!res)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (HeadlampsColor != other.HeadlampsColor)
+            {
+                return false;
+            }
+            if (IsExtraWheel != other.IsExtraWheel)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            DoubleBus busObj = obj as DoubleBus;
+            if (busObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(busObj);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

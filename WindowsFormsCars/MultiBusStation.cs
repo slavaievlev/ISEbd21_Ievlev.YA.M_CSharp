@@ -83,25 +83,18 @@ namespace WindowsFormsCars
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            try
+                            foreach (var bus in level)
                             {
-                                var bus = level[i];
-                                if (bus != null)
+                                if (bus.GetType().Name == "Bus")
                                 {
-                                    // Если место не пустое, то записываем тип машины.
-                                    if (bus.GetType().Name == "Bus")
-                                    {
-                                        WriteToFile(i + ":Bus:", fs);
-                                    }
-                                    if (bus.GetType().Name == "DoubleBus")
-                                    {
-                                        WriteToFile(i + ":DoubleBus:", fs);
-                                    }
-                                    // Записываемые параметры.
-                                    WriteToFile(bus + Environment.NewLine, fs);
+                                    WriteToFile(":Bus:", fs);
                                 }
+                                if (bus.GetType().Name == "DoubleBus")
+                                {
+                                    WriteToFile(":DoubleBus:", fs);
+                                }
+                                WriteToFile(bus + Environment.NewLine, fs);
                             }
-                            catch { }
                         }
                     }
                 }
@@ -162,6 +155,7 @@ namespace WindowsFormsCars
             }
 
             int counter = -1;
+            int counterBus = 0;
             ITransport bus = null;
             for (int i = 1; i < strs.Length; i++)
             {
@@ -170,6 +164,7 @@ namespace WindowsFormsCars
                 {
                     // Начинаем новый уровень.
                     counter++;
+                    counterBus = 0;
                     busStationsStages.Add(new BusStation<ITransport>(countPlaces, pictureWidth, pictureHeight));
                     continue;
                 }
@@ -182,13 +177,19 @@ namespace WindowsFormsCars
                 if (strs[i].Split(':')[1] == "Bus")
                 {
                     bus = new Bus(strs[i].Split(':')[2]);
-                } else if (strs[i].Split(':')[1] == "DoubleBus")
+                }
+                else if (strs[i].Split(':')[1] == "DoubleBus")
                 {
                     bus = new DoubleBus(strs[i].Split(':')[2]);
                 }
 
-                busStationsStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = bus;
+                busStationsStages[counter][counterBus++] = bus;
             }
+        }
+
+        public void Sort()
+        {
+            busStationsStages.Sort();
         }
     }
 }
